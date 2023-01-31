@@ -34,6 +34,12 @@ final juiceList = [
     price: '19.99',
     color: const Color(0xFFDC691F),
   ),
+  JuiceEntity(
+    name: 'Orange Juice',
+    image: 'https://flutter4fun.com/wp-content/uploads/2021/09/juice2.png',
+    price: '19.99',
+    color: const Color.fromARGB(255, 85, 220, 31),
+  ),
 ];
 
 class MyHomePage extends StatelessWidget {
@@ -43,20 +49,28 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(children: [
-      const MycustomAppBar(),
-      Expanded(
-        child: Center(
-          child: ListView.builder(
-            padding: const EdgeInsets.all(20.0),
-            itemBuilder: (context, index) {
-              return JuiceWidget(juiceItem: juiceList[index]);
-            },
-            itemCount: juiceList.length,
+      body: Stack(
+        children: [
+          Column(
+            children: [
+              const MycustomAppBar(),
+              Expanded(
+                child: Center(
+                  child: ListView.builder(
+                    padding: const EdgeInsets.all(20.0),
+                    itemBuilder: (context, index) {
+                      return JuiceWidget(juiceItem: juiceList[index]);
+                    },
+                    itemCount: juiceList.length,
+                  ),
+                ),
+              ),
+            ],
           ),
-        ),
+          const BottomNavigation(),
+        ],
       ),
-    ]));
+    );
   }
 }
 
