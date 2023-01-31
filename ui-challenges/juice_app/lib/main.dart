@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:juice_app/pages/juice_details_page.dart';
 import 'package:juice_app/ui/ui.dart';
 
 void main() {
@@ -59,7 +60,18 @@ class MyHomePage extends StatelessWidget {
                   child: ListView.builder(
                     padding: const EdgeInsets.all(20.0),
                     itemBuilder: (context, index) {
-                      return JuiceWidget(juiceItem: juiceList[index]);
+                      final juice = juiceList[index];
+
+                      return JuiceWidget(
+                          juiceItem: juice,
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    JuiceDetailsPage(juice: juice),
+                              ),
+                            );
+                          });
                     },
                     itemCount: juiceList.length,
                   ),
