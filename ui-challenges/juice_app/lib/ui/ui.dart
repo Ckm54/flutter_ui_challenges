@@ -7,3 +7,4 @@ import 'package:juice_app/main.dart';
 
 part 'widgets/juice_widget.dart';
 part 'widgets/my_button.dart';
+part 'widgets/custom_app_bar.dart';

@@ -22,19 +22,19 @@ class MyApp extends StatelessWidget {
 }
 
 final juiceList = [
-    JuiceEntity(
-      name: 'Besom Yellow Juice',
-      image: 'https://flutter4fun.com/wp-content/uploads/2021/09/juice1.png',
-      price: '19.99',
-      color: const Color(0xFFF3BE39),
-    ),
-    JuiceEntity(
-      name: 'Besom Orange Juice',
-      image: 'https://flutter4fun.com/wp-content/uploads/2021/09/juice2.png',
-      price: '19.99',
-      color: const Color(0xFFDC691F),
-    ),
-  ];
+  JuiceEntity(
+    name: 'Besom Yellow Juice',
+    image: 'https://flutter4fun.com/wp-content/uploads/2021/09/juice1.png',
+    price: '19.99',
+    color: const Color(0xFFF3BE39),
+  ),
+  JuiceEntity(
+    name: 'Besom Orange Juice',
+    image: 'https://flutter4fun.com/wp-content/uploads/2021/09/juice2.png',
+    price: '19.99',
+    color: const Color(0xFFDC691F),
+  ),
+];
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key, required this.title});
@@ -43,19 +43,20 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: Center(
+        body: Column(children: [
+      const MycustomAppBar(),
+      Expanded(
+        child: Center(
           child: ListView.builder(
-          padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(20.0),
             itemBuilder: (context, index) {
               return JuiceWidget(juiceItem: juiceList[index]);
             },
             itemCount: juiceList.length,
           ),
-        )
-    );
+        ),
+      ),
+    ]));
   }
 }
 
