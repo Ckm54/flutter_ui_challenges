@@ -11,3 +11,4 @@ part 'widgets/my_button.dart';
 part 'widgets/custom_app_bar.dart';
 part 'widgets/bottom_navigation.dart';
 part 'widgets/top_section.dart';
+part 'widgets/rating_stars.dart';
