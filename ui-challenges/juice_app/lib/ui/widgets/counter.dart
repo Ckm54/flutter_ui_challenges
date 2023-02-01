@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:juice_app/ui/ui.dart';
 
 class Counter extends StatelessWidget {
   const Counter({
@@ -14,6 +13,8 @@ class Counter extends StatelessWidget {
   final VoidCallback onIncreaseClicked;
   final VoidCallback onDecreaseClicked;
   final Color color;
+  final textStyle =
+      const TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 18);
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +46,7 @@ class Counter extends StatelessWidget {
             child: Text(
               currentCount.toString(),
               style: textStyle,
+              textAlign: TextAlign.center,
             ),
           ),
           const SizedBox(
