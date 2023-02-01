@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:juice_app/main.dart';
+import 'package:juice_app/ui/widgets/counter.dart';
 
 class JuiceDetailsPage extends StatefulWidget {
   const JuiceDetailsPage({
@@ -16,11 +17,28 @@ class JuiceDetailsPage extends StatefulWidget {
 }
 
 class _JuiceDetailsPageState extends State<JuiceDetailsPage> {
+
+  int count = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Text('details page'),
+      backgroundColor: Colors.grey,
+      body: Center(
+        child: Counter(
+          currentCount: count,
+          color: widget.juice.color,
+          onIncreaseClicked: () {
+            setState(() {
+              count++;
+            });
+          },
+          onDecreaseClicked: () {
+            setState(() {
+              count--;
+            });
+          }
+        ),
       ),
     );
   }
